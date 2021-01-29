@@ -1,7 +1,29 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 
+import styles from '../styles/Home.module.css'
+import ToDoList from '../components/ToDoList'
+import AddTaskForm from '../components/AddTaskForm'
 export default function Home() {
+
+
+  const todoList = [{
+    id: 1,
+    name : "lavar ropa",
+    description: "xdddxd"
+  },
+  {
+    id: 2,
+    name : "lavar rop2",
+    description: "xdddxd"
+  },
+  {
+    id: 3,
+    name : "lavar rop2",
+    description: "xdddxd"
+  },
+]
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,19 +35,13 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to this app
         </h1>
-
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-                 
-         
-        </div>
+        <AddTaskForm/>      
+        <ToDoList todoList = {todoList}/>
+        
       </main>
 
       
     </div>
   )
 }
+
