@@ -6,24 +6,26 @@ import { deleteTodo, editDone } from '../actions'
 
 
 const TodoCard = (props) => {
-    const {item, editDone, deleteTodo} = props
+    const {id, name, done, description, editDone, deleteTodo} = props
     return (
         <div className={styles.card} >
-            <Link href={`/tododetail/${item.id}`}>
-                <h3>{item.name} &rarr;</h3>
+            <Link href={`/tododetail/${id}`}>
+                <h3>{name} &rarr;</h3>
             </Link>
-            <p>{item.description}</p>
+            <p>{description}</p>
             <input
                 name="done"
                 type="checkbox"
-                checked={item.done}
-                value={item.done}
-                onChange={() => editDone(item.id)}
+                checked={done}
+                value={done}
+                
+                onChange={() => editDone(id)}
             />
             <button
                 className="button"
-                onClick={() => deleteTodo(item.id)}
+                onClick={() => deleteTodo(id)}
             >Del</button>
+               
         </div>
     )
 }

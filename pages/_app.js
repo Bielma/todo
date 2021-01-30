@@ -13,7 +13,7 @@ const initalState = {
         id: 1,
         name: 'compras',
         description: 'Comprar awa',
-        done: false
+        done: true
     },
     {
         id: 2,
