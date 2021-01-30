@@ -29,6 +29,7 @@ const TodoDetail = ({ todo, searchTodo, editTodo }) => {
             ...values,
             id: todo.id
         });
+        alert("Update completed")
 
 
     }
