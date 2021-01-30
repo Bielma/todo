@@ -13,9 +13,12 @@ const reducer = (state, action) => {
                         description: action.payload.description
                     }
                 ]
-
             }
-
+        case actions.deleteTodo:
+            return {
+                ...state,
+                todoList: state.todoList.filter(items => items.id !== action.payload)
+            }
         default:
             return state
     }

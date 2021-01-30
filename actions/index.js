@@ -8,3 +8,8 @@ export const addTodo = payload => ({
     type: actions.addTodo,
     payload,
 });
+
+export const deleteTodo = payload => ({
+    type: actions.deleteTodo,
+    payload,
+});
