@@ -5,9 +5,17 @@ const reducer = (state, action) => {
         case actions.addTodo:
             return {
                 ...state,
-                todos
+                todoList: [
+                    ...state.todoList,
+                    {
+                        id: state.todoList.length + 1,
+                        name: action.payload.name,
+                        description: action.payload.description
+                    }
+                ]
 
             }
+
         default:
             return state
     }

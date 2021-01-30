@@ -1,29 +1,31 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import useForm from '../hooks/useForm'
-
-
+import {addTodo} from '../actions'
+import {connect} from 'react-redux'
 const AddTaskForm = (props) => {
 
     const [values, handleInputChange] = useForm({})
 
     const handleSubmit = event => {
-        event.preventDefault()
-        console.log(values);
+        event.preventDefault();        
+        props.addTodo(values);
     }
 
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name="taskName"
+            <input name="name"
                 type="text"
                 placeholder="Name"
-                onChange={handleInputChange} />
+                onChange={handleInputChange}
+                required="required" />
             <input
-                name="taskDesc"
+                name="description"
                 type="text"
                 placeholder="Description"
-                onChange={handleInputChange} />
+                onChange={handleInputChange}
+                required="required" />
             <button className="button">Add</button>
             
         </form>
@@ -31,4 +33,8 @@ const AddTaskForm = (props) => {
     )
 }
 
-export default AddTaskForm
+const mapDispathToProps = {
+    addTodo,
+}
+
+export default connect(null, mapDispathToProps) (AddTaskForm)

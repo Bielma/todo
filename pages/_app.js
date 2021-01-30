@@ -5,11 +5,7 @@ import {createStore} from 'redux'
 import reducer from '../reducers'
 
 const initalState = {
-  todoList: [{
-    id: 1,
-    name: "lavar ropa",
-    description: "xdddxd"
-  }]
+  todoList: [],
 }
 
 const store = createStore(reducer, initalState)
