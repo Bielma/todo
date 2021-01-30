@@ -11,10 +11,17 @@ const TodoDetail = ({ todo, searchTodo, editTodo }) => {
     const router = useRouter()
     const [values, handleInputChange] = useForm({})
 
-    useEffect(() => {
-        searchTodo(router.query.id)
-        setEditAllow(true)
+    useEffect(() => {        
+        getTodo()        
     }, [])
+
+
+    const getTodo = async () =>{
+        //router.query no funciona si introduces directamente la url. 
+        await searchTodo(router.query.id)        
+        setEditAllow(true)
+        
+    }
 
     const handleSubmit = event => {
         event.preventDefault();                
@@ -22,6 +29,8 @@ const TodoDetail = ({ todo, searchTodo, editTodo }) => {
             ...values,
             id: todo.id
         });
+
+
     }
 
     return editAllow ?
