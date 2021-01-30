@@ -23,7 +23,7 @@ const initalState = {
     },
     ],
     todo: {},
-    todoToSearch: [],
+    option: 'all',
 
 }
 

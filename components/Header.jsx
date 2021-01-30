@@ -4,8 +4,8 @@ const Header = () => {
     return (
         <>
             <header className= "header">
-                <Link  href="/">
-                    <h2 className ="header__name">Todo List</h2>
+                <Link  href="/">                    
+                    <h2 className ="header__name">To Do</h2>
                 </Link>
             </header>
             

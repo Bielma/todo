@@ -4,6 +4,7 @@ export const actions = {
     editTodo: 'EDIT_TODO',
     editDone: 'EDIT_DONE',
     searchTodo: 'SEARCH_TODO',
+    setOption: 'SET_OPTION',
 }
 
 export const addTodo = payload => ({
@@ -28,5 +29,10 @@ export const searchTodo = payload => ({
 });
 export const editTodo = payload => ({
     type: actions.editTodo,
+    payload,
+});
+
+export const setOption = payload => ({
+    type: actions.setOption,
     payload,
 });

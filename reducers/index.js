@@ -44,10 +44,15 @@ const reducer = (state, action) => {
             newTodo.description = action.payload.description
             newTodo.done = action.payload.done
 
-            return{
+            return {
                 ...state,
                 todoList: todosAux.concat(newTodo),
-                todo: newTodo,    
+                todo: newTodo,
+            }
+        case actions.setOption:
+            return {
+                ...state,
+                option: action.payload
             }
         default:
             return state
