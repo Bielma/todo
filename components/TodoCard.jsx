@@ -21,10 +21,9 @@ const TodoCard = (props) => {
                 
                 onChange={() => editDone(id)}
             />
-            <button
-                className="button"
+            <button                
                 onClick={() => deleteTodo(id)}
-            >Del</button>
+            >Delete</button>
                
         </div>
     )

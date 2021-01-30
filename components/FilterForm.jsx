@@ -16,11 +16,11 @@ const FilterForm = ({option, setOption}) => {
 
     return (
         <div>
-            <label htmlFor="options">Filter by:</label>
+            <label htmlFor="options">Filter by:</label>{' '}
             <select value = {option} name="options" id="options" onChange = {handleOptionChange}>                
-                <option value="all" >Show all</option>
-                <option value="done">Show all done task</option>
-                <option value="dontdone">Show all dont done task</option>
+                <option value="all" >All</option>
+                <option value="done">Done</option>
+                <option value="dontdone">Dont done</option>
             </select>
             <p> </p>
             <p></p>
