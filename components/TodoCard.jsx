@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { connect } from 'react-redux';
 import { deleteTodo, editDone } from '../actions'
-
+import PropTypes from 'prop-types';
 
 const TodoCard = (props) => {
     const {id, name, done, description, editDone, deleteTodo} = props
@@ -17,8 +17,7 @@ const TodoCard = (props) => {
                 name="done"
                 type="checkbox"
                 checked={done}
-                value={done}
-                
+                value={done}                
                 onChange={() => editDone(id)}
             />
             <button                
@@ -33,4 +32,13 @@ const mapDispathToProps = {
     editDone,
 
 }
+
+
+TodoCard.propTypes = {
+    id: PropTypes.number,
+    name: PropTypes.string,
+    done: PropTypes.bool, 
+    description: PropTypes.string,
+}
+
 export default connect(null, mapDispathToProps)(TodoCard)
