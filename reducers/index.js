@@ -30,6 +30,25 @@ const reducer = (state, action) => {
                 ...state,
                 todoList: todos.concat(nTodo)
             }
+        case actions.searchTodo:
+            console.log("searchTodo")
+            return {
+                ...state,
+                todo: state.todoList.find(item => item.id == action.payload),
+            }
+        case actions.editTodo:
+            let todosAux = state.todoList.filter(items => items.id !== action.payload.id)
+            let newTodo = state.todoList.find(item => item.id == action.payload.id)
+            newTodo.id = action.payload.id
+            newTodo.name = action.payload.name
+            newTodo.description = action.payload.description
+            newTodo.done = action.payload.done
+
+            return{
+                ...state,
+                todoList: todosAux.concat(newTodo),
+                todo: newTodo,    
+            }
         default:
             return state
     }
