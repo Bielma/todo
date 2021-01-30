@@ -8,7 +8,8 @@ const initalState = {
   todoList: [{
     id:1,
     name: 'compras',
-    description: 'Comprar awa'
+    description: 'Comprar awa',
+    done: true
   }],
 }
 
