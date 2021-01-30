@@ -2,6 +2,8 @@ import { Button } from 'react-bootstrap'
 import React from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import {connect} from 'react-redux';
+
 
 const ToDoList = (props) => {
 
@@ -34,4 +36,11 @@ const ToDoList = (props) => {
     )
 }
 
-export default ToDoList
+
+const mapStateToProps = state =>{
+    return{
+        todoList: state.todoList
+    }
+}
+
+export default connect(mapStateToProps, null)(ToDoList)
