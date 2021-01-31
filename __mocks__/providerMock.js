@@ -1,29 +1,24 @@
+import React from 'react'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from '../reducers'
+import {createBrowserHistory} from 'history'
 
-
-//const composeEnhancers =
-//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const initalState = {
-    todoList: [{
-        id: 1,
-        name: 'Test',
-        description: 'make unit test',
-        done: false
-    },    
-    ],
+    todoList: [],
     todo: {},
     option: 'all',
 
 }
 
 const store = createStore(reducer, initalState)
+const history  = createBrowserHistory(); 
 
-function MyApp({ Component, pageProps }) {
+
+function ProviderMocks({ Component, pageProps }) {
     return (
         <Provider store={store} >
             <Layout >
@@ -34,4 +29,4 @@ function MyApp({ Component, pageProps }) {
     )
 }
 
-export default MyApp
+export default ProviderMocks
