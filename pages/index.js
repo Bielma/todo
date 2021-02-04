@@ -21,7 +21,8 @@ function Home(props) {
             </Head>
 
             <main className="container" >
-               <HeaderList/>                                           
+               <HeaderList/>   
+              
                 <ToDoList>
                     {
                         todoList.map(item =>
