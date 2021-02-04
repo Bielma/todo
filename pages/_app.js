@@ -16,6 +16,7 @@ const initalState = {
         crated: '22-01-2020',
         done: true
     }],
+    option: 'all',
     todo: {},
     date: '',
 
@@ -24,12 +25,15 @@ const initalState = {
 const store = createStore(reducer, initalState)
 
 function MyApp({ Component, pageProps }) {
-    return (
-        <Provider store={store}>
-        <Layout >
-            <Component {...pageProps} />
-        </Layout >
-        </Provider>
+    return ( <
+        Provider store = { store } >
+        <
+        Layout >
+        <
+        Component {...pageProps }
+        /> < /
+        Layout > <
+        /Provider>
     )
 }
 
