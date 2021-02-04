@@ -5,6 +5,7 @@ import AddTaskForm from '../components/AddTaskForm'
 import FilterForm from '../components/FilterForm'
 import TodoCard from '../components/TodoCard'
 import { connect } from 'react-redux';
+import HeaderList from '../components/HeaderList'
 
 
 
@@ -12,21 +13,15 @@ function Home(props) {
     const {todoList, option} = props
     
     return (
-        <div className={styles.container}>
+        <>
             <Head>
                 <title > TODOS </title>
                 <link rel="icon"
                     href="/favicon.ico" />
             </Head>
 
-            <main className={styles.main} >
-                <FilterForm />
-                <h1 className={styles.title}>
-                    To Do List
-                </h1>
-                <p></p>
-                <AddTaskForm />
-
+            <main className="container" >
+               <HeaderList/>                                           
                 <ToDoList>
                     {
                         todoList.map(item =>
@@ -47,7 +42,8 @@ function Home(props) {
 
 
             </main>
-        </div>
+        
+        </>
     )
 }
 

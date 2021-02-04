@@ -1,10 +1,52 @@
 .container {
-    min-height: 100vh;
+    width: 90%;
+    margin: 1.6em auto;
+    background-color: white;
+    min-height: 700px;
     padding: 0 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    ;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.container>* {
+    border-bottom: 1px solid grey;
+}
+
+.header-list {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 50px;
     align-items: center;
+}
+
+.header-list__title {
+    margin-left: 20 px;
+    grid-column: 1/2;
+}
+
+.header-list__rigth {
+    margin-right: 20px;
+    gap: 15px;
+    grid-column: 3/-1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-button {
+    color: indigo;
+}
+
+.add-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.add-button:hover {
+    color: indigo;
+    background: rgb(238, 224, 224);
 }
 
 .main {
@@ -12,25 +54,6 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer {
-    width: 100%;
-    height: 100px;
-    border-top: 1px solid #eaeaea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer img {
-    margin-left: 0.5rem;
-}
-
-.footer a {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -60,14 +83,6 @@
 .description {
     line-height: 1.5;
     font-size: 1.5rem;
-}
-
-.code {
-    background: #fafafa;
-    border-radius: 5px;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -126,8 +141,16 @@
 }
 
 @media (max-width: 600px) {
-    .grid {
-        width: 100%;
-        flex-direction: column;
+    .header-list {
+        height: 120px;
+    }
+    .header-list__title {
+        margin-left: 20 px;
+        margin-top: 20px;
+        grid-column: 1/-1;
+    }
+    .header-list__rigth {
+        grid-column: 1/-1;
+        justify-content: space-between;
     }
 }

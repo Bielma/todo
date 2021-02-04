@@ -3,7 +3,7 @@ import '../styles/globals.css'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from '../reducers'
-
+//import 'bootstrap/dist/css/bootstrap.min.css'
 
 //const composeEnhancers =
 //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -13,17 +13,11 @@ const initalState = {
         id: 1,
         name: 'compras',
         description: 'Comprar awa',
+        crated: '22-01-2020',
         done: true
-    },
-    {
-        id: 2,
-        name: 'compras2',
-        description: 'Comprar helado',
-        done: false
-    },
-    ],
+    }],
     todo: {},
-    option: 'all',
+    date: '',
 
 }
 
@@ -31,12 +25,11 @@ const store = createStore(reducer, initalState)
 
 function MyApp({ Component, pageProps }) {
     return (
-        <Provider store={store} >
-            <Layout >
-                <Component {...pageProps} />
-            </Layout >
+        <Provider store={store}>
+        <Layout >
+            <Component {...pageProps} />
+        </Layout >
         </Provider>
-
     )
 }
 

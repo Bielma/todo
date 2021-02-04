@@ -1,5 +1,6 @@
 html,
 body {
+    background-color: rgb(245, 231, 231);
     padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -17,17 +18,15 @@ a {
 }
 
 .header {
-    width: 100%;
-    background-color: #007bff;
-    height: 80px;
     display: flex;
+    width: 100%;
+    height: 80px;
     align-items: center;
 }
 
 .header__name {
-    color: white;
-    margin-top: px;
-    margin-left: 10px;
+    color: black;
+    margin-left: calc(65px);
 }
 
 .header__name:hover {
@@ -38,10 +37,13 @@ a {
 @media (max-width: 600px) {
     .header {
         width: 100%;
-        background-color: #007bff;
         height: 80px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+    }
+    .header__name {
+        color: black;
+        margin-left: 25px;
     }
 }
