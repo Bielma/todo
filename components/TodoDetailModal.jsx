@@ -53,7 +53,7 @@ const TodoDetailModal = (props) => {
                 <p>Updated Today 02:35pm, by tony</p>
                 <div className="buttons">
 
-                    <span className="buttons__edit">
+                    <span className="buttons__edit" onClick ={()=> deleteTodo(id)}> 
                         <img src={iconEdit} alt="edit icon" />
                         Edit
                     </span>

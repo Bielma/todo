@@ -1,23 +1,25 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { setOption } from '../actions'
+import { setOption, setDate } from '../actions'
 
 
-const FilterForm = ({ option, setOption }) => {
+const FilterForm = ({ setDate, setOption }) => {
 
-    //const [option, setOption] = useState("all")
+    
+    
 
 
+    const handleOptionChange = ({target}) => {        
+        setOption('otherday')
+        setDate(target.value)
 
-    const handleOptionChange = event => {
-        event.preventDefault();
-        setOption(event.target.value)
     }
 
+    
     return (
         <div>
 
-            <input type="date" />
+            <input type="date"  onChange = {handleOptionChange}/>
 
         </div>
     )
@@ -25,13 +27,9 @@ const FilterForm = ({ option, setOption }) => {
 
 const mapDispathToProps = {
     setOption,
+    setDate,
 }
 
-const mapStateToProps = state => {
-    return {
-        option: state.option,
-    }
 
-}
 
-export default connect(mapStateToProps, mapDispathToProps)(FilterForm);
+export default connect(null, mapDispathToProps)(FilterForm);

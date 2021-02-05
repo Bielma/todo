@@ -4,7 +4,9 @@ const reducer = (state, action) => {
     switch (action.type) {
         case actions.addTodo:
             const d = new Date()
-            const date = d.getDay() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
+            const month = ("0" + (d.getMonth() + 1)).slice(-2)
+            const day = ("0" + d.getDate()).slice(-2);
+            const year = +d.getFullYear()
             return {
                 ...state,
                 todoList: [
@@ -13,7 +15,8 @@ const reducer = (state, action) => {
                         id: state.todoList.length + 1,
                         name: action.payload.name,
                         description: action.payload.description,
-                        created: date,
+                        created: day + '/' + month + '/' + year,
+                        date: year + '-' + month + '-' + day,
                         done: false
                     }
                 ]
@@ -56,6 +59,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 option: action.payload
+            }
+        case actions.setDate:
+            return {
+                ...state,
+                date: action.payload
             }
         default:
             return state

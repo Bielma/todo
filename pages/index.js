@@ -10,7 +10,7 @@ import HeaderList from '../components/HeaderList'
 
 
 function Home(props) {
-    const {todoList, option} = props
+    const {todoList, option, date} = props
     
     return (
         <>
@@ -28,13 +28,9 @@ function Home(props) {
                         todoList.map(item =>
                             option === 'all' ?                                
                                 <TodoCard  key={item.id} {...item}/>
-                            : option=== 'done' ?
-                                item.done &&
-                                <TodoCard  key={item.id} {...item}/>
-                            :   !item.done &&
-                                <TodoCard  key={item.id} {...item}/>
-
-
+                            : 
+                            item.date === date &&
+                            <TodoCard  key={item.id} {...item}/>
                         )
 
                     }
@@ -53,6 +49,7 @@ const mapStateToProps = state => {
     return {
         todoList: state.todoList,
         option: state.option,
+        date: state.date,
     }
 }
 
