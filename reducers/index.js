@@ -3,6 +3,8 @@ import { actions } from '../actions'
 const reducer = (state, action) => {
     switch (action.type) {
         case actions.addTodo:
+            const d = new Date()
+            const date = d.getDay() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
             return {
                 ...state,
                 todoList: [
@@ -11,6 +13,7 @@ const reducer = (state, action) => {
                         id: state.todoList.length + 1,
                         name: action.payload.name,
                         description: action.payload.description,
+                        created: date,
                         done: false
                     }
                 ]

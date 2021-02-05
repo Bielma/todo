@@ -9,13 +9,7 @@ import reducer from '../reducers'
 //  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const initalState = {
-    todoList: [{
-        id: 1,
-        name: 'compras',
-        description: 'Comprar awa',
-        crated: '22-01-2020',
-        done: true
-    }],
+    todoList: [],
     option: 'all',
     todo: {},
     date: '',
@@ -25,15 +19,12 @@ const initalState = {
 const store = createStore(reducer, initalState)
 
 function MyApp({ Component, pageProps }) {
-    return ( <
-        Provider store = { store } >
-        <
-        Layout >
-        <
-        Component {...pageProps }
-        /> < /
-        Layout > <
-        /Provider>
+    return (
+        <Provider store={store}>
+        <Layout >
+            <Component {...pageProps} />
+        </Layout >
+        </Provider>
     )
 }
 

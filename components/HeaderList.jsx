@@ -6,7 +6,7 @@ import AddTaskForm from './AddTaskForm'
 
 
 const HeaderList = () => {
-    const [showModal, setShowModal] = useState(true)
+    const [showModal, setShowModal] = useState(false)
 
     const openModal = () =>{
         setShowModal(showModal ? false : true )

@@ -1,18 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import Link from 'next/link'
 import { connect } from 'react-redux';
 import { deleteTodo, editDone } from '../actions'
 import PropTypes from 'prop-types';
+import TodoDetailModal from './TodoDetailModal';
 
 const TodoCard = (props) => {
-    const { id, name, done, description, editDone, deleteTodo } = props
+    const { id, name, done, description, created, editDone } = props
+
+    
+    const [showDetail, setShowDetail] = useState(false)
+    const openDetail = () =>{
+        setShowDetail(showDetail ? false : true )
+        console.log("Modal Detail...")
+    }
     return (
 
 
-        <tr className="table__rows">
-
-            
+        <tr className="table__rows" onClick = {openDetail}>
             <td className="round" onClick = {()=> editDone(id)}>           
                 <input className="checkbox"
                     name="done"
@@ -24,17 +30,24 @@ const TodoCard = (props) => {
                  <label htmlFor="checkbox"></label>
             </td>
             <td>{name}</td>
-            <td>22-02-2020</td>
+            <td>{created}</td>
             <td className="table__rows-desc">{description}</td>
+
+    
+            {
+                showDetail &&
+                <TodoDetailModal 
+                    isOpen = {showDetail     } 
+                    {...props}
+                    /> 
+            }
         </tr>
 
 
     )
 }
 const mapDispathToProps = {
-    deleteTodo,
     editDone,
-
 }
 
 
