@@ -1,70 +1,40 @@
 
 import React from 'react'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-import { connect } from 'react-redux';
-import TodoCard from './TodoCard'
-
-const ToDoList = (props) => {
-
-    const { todoList, option } = props
 
 
-    switch(option){
-        case 'all':
-            return (
-                <div className={styles.grid}>
-                    {                
-                        todoList.map(item =>                                  
-                                <TodoCard item = {item} key={item.id}/>                                                                                 
-                        )
-                    }
-                </div>
-            )
-        case 'done':
-            return (
-                <div className={styles.grid}>
-                    {                
-                        todoList.map(item =>                                  
-                                item.done &&
-                                <TodoCard item = {item} key={item.id}/>                                                                                 
-                        )
-                    }
-                </div>
-            )
-        case 'dontdone':
-            return (
-                <div className={styles.grid}>
-                    {                
-                        todoList.map(item =>                                  
-                                !item.done &&
-                                <TodoCard item = {item} key={item.id}/>                                                                                 
-                        )
-                    }
-                </div>
-            )
-        default:
-            return (
-                <div className={styles.grid}>
-                    {                
-                        todoList.map(item =>                                  
-                                <TodoCard item = {item} key={item.id}/>                                                                                 
-                        )
-                    }
-                </div>
-            )
-    }
-    
+
+
+
+const ToDoList = ({ children }) => {
+
+    return (
+
+        <table className="table">
+            
+                <tr className="table__header">
+                    <th ></th>
+                    <th >Title</th>
+                    <th >Created</th>
+                    <th className="table__header-desc">Description</th>
+                </tr>
+        
+
+        
+            {
+                children
+            }
+
+        </table>
+
+
+
+
+
+
+    )
+
+
 }
 
 
-const mapStateToProps = state => {
-    return {
-        todoList: state.todoList,
-        option: state.option,
-    }
-}
-
-
-
-export default connect(mapStateToProps, null)(ToDoList)
+export default ToDoList

@@ -1,34 +1,68 @@
-import React from 'react'
-import { Button } from 'react-bootstrap'
-import useForm from '../hooks/useForm'
-import {addTodo} from '../actions'
-import {connect} from 'react-redux'
-const AddTaskForm = (props) => {
+import React, { useState } from 'react'
+import styles from '../styles/AddTask.module.css'
+import Modal from 'react-modal';
 
+
+import useForm from '../hooks/useForm'
+import { addTodo } from '../actions'
+import { connect } from 'react-redux'
+
+Modal.setAppElement('#__next')
+
+
+
+const AddTaskForm = (props) => {
+    const {addTodo, isOpen} = props
+    const [modalIsOpen, setIsOpen] = useState(isOpen);
     const [values, handleInputChange] = useForm({})
 
     const handleSubmit = event => {
-        event.preventDefault();        
-        props.addTodo(values);
+        event.preventDefault();
+        addTodo(values);
+        closeModal()
     }
 
-
+    function closeModal(){
+        setIsOpen(false);
+    }
+     
+   
     return (
-        <form onSubmit={handleSubmit}>
-            <input name="name"
-                type="text"
-                placeholder="Name"
-                onChange={handleInputChange}
-                required="required" />
-            <input
-                name="description"
-                type="text"
-                placeholder="Description"
-                onChange={handleInputChange}
-                required="required" />
-            <button className="button">Add</button>
-            
-        </form>
+        <Modal 
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className="react-modal"
+        contentLabel="Add task"
+     
+        >
+            <div className="modal">
+                <header className="header">
+                    <h3>New Task</h3>
+                </header>
+                <form onSubmit={handleSubmit} className="newTaskForm">
+                    <label htmlFor="name">Title (Required)</label>
+                    <input name="name"
+                        type="text"
+                        onChange={handleInputChange}
+                        required="required" />
+                    <label htmlFor="description">Description</label>
+                    <textarea
+                        rows="6"                        
+                        name="description"
+                        onChange={handleInputChange}>
+
+                    </textarea>
+                    <div className = "newTaskForm__buttons">
+                    <button className="button-cancel" onClick = {closeModal}>Cancel</button>                
+                    <button className="button-save">Save</button>
+                    </div>
+                    
+                </form>
+
+            </div>
+
+
+        </Modal>
 
     )
 }
@@ -37,4 +71,4 @@ const mapDispathToProps = {
     addTodo,
 }
 
-export default connect(null, mapDispathToProps) (AddTaskForm)
+export default connect(null, mapDispathToProps)(AddTaskForm)

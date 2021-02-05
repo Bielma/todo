@@ -1,0 +1,68 @@
+.detail-modal {
+    position: absolute;
+    top: 0%;
+    left: 75%;
+    right: 0%;
+    bottom: -85%;
+    box-shadow: 0px 0px 5px 1px rgb(235, 207, 207);
+    background-color: white;
+}
+
+.detail-modal__container {
+    width: 90%;
+    margin: 1.6em auto;
+    min-height: 700px;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-modal__container .buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.detail-modal__container .buttons span {
+    width: 90px;
+    height: 50px;
+    display: flex;
+    gap: 5px;
+    background-color: rgba(225, 229, 230, 0.637);
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-modal__container .buttons span:hover {
+    background-color: rgba(157, 182, 189, 0.637);
+    cursor: pointer;
+}
+
+.buttons__edit img,
+.buttons__delete img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 400px) {
+    .detail-modal {
+        position: absolute;
+        top: 0%;
+        left: 10%;
+        right: 0%;
+        bottom: -85%;
+        box-shadow: 0px 0px 5px 1px rgb(235, 207, 207);
+        background-color: white;
+    }
+    .newTaskForm__buttons {
+        margin-top: 20px;
+        align-self: flex-start;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        justify-content: space-between;
+    }
+}
