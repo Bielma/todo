@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { searchTodo, deleteTodo, editDone } from '../actions'
 import styles from '../styles/DetailModal.module.css'
+import iconDelete from '../assets/delete-icon.png'
+import iconEdit from '../assets/icon-edit.png'
+
 
 Modal.setAppElement('#__next')
 
@@ -49,8 +52,15 @@ const TodoDetailModal = (props) => {
                 </div>
                 <p>Updated Today 02:35pm, by tony</p>
                 <div className="buttons">
-                    <button> Edit</button>
-                    <button> Cancel</button>
+
+                    <span className="buttons__edit">
+                        <img src={iconEdit} alt="edit icon" />
+                        Edit
+                    </span>
+                    <span className="buttons__delete">
+                        <img src={iconDelete} alt="delete icon" />
+                        Delete
+                    </span>
                 </div>
 
 
